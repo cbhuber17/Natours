@@ -6,3 +6,77 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* "Page Reset" is done with the universal * and body selectors below.  */
+
+/* Fully control margin and padding automatically done by the browser */
+/* Border box model borders and paddings are removed, gives more control */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* Best practice to put the font family here and not in the universal selector * above */
+body {
+    font-family: "lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, 
+                                    rgba(126, 213, 111, 0.8),
+                                    rgba(40, 180, 131, 0.8)),
+                      url('../img/hero.jpg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    /* Clip path defines a polygon, starting 0, 0 is the top left of the header image */
+    /* Useful tool at https://bennettfeely.com/clippy/ */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    /* Absolute position of the logo box relative to its parent, which is header (set to relative in .header) */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    /* These top and left are in relation to the parent element */
+    top: 40%;
+    left: 50%;
+    /* Puts the text in the middle of the page*/
+    /* In relation to the element itself and not the parent element */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    /* Block display allows occupy the entire width available and create line breaks before/after them */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
