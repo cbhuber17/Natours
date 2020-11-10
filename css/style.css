@@ -57,14 +57,23 @@ body {
     /* These top and left are in relation to the parent element */
     top: 40%;
     left: 50%;
-    /* Puts the text in the middle of the page*/
+    /* Puts the text in the middle of the page */
     /* In relation to the element itself and not the parent element */
     transform: translate(-50%, -50%);
+
+    /* Center the button (button is inline and is treated like text) */
+    text-align: center;
 }
 
 .heading-primary {
     color: #FFF;
     text-transform: uppercase;
+
+    /* Prevent the animation from being shaky at the end (slight shift up) (Hack to fix it) */
+    /* Normally used if an element is flipped 180 degrees and you want to hide it */
+    backface-visibility: hidden;
+
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -73,10 +82,186 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+
+    /* Ease out: start fast, end slow */
+    animation-timing-function: ease-out;
+
+    /* Repeat animation 3 times */
+    /* animation-iteration-count: 3; */
+
+    /* Delay in starting the animation */
+    /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
+    display: block;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+
+    /* Start */
+    0% {
+        /* Start invisible */
+        opacity: 0;
+        /* Start out of the left side */
+        transform: translateX(-100px);
+    }
+
+    /* Rotations */
+    /* 60% {
+        transform: rotate(180deg);
+    } */
+
+    /* Slight roll to the right side near the end */
+    80% {
+        transform: translateX(10px);
+    }
+
+    /* Finish */
+    100% {
+
+        /* Finish visible */
+        opacity: 1;
+
+        /* No translation; make it look like without animation (what is looks like at the end) */
+        transform: translate(0);
+
+    }
+}
+
+@keyframes moveInRight {
+
+    /* Start */
+    0% {
+        /* Start invisible */
+        opacity: 0;
+        /* Start out of the right side */
+        transform: translateX(100px);
+    }
+
+    /* Rotations */
+    /* 60% {
+        transform: rotate(180deg);
+    } */
+
+    /* Slight roll to the left side near the end */
+    80% {
+        transform: translateX(-10px);
+    }
+
+    /* Finish */
+    100% {
+        /* Finish visible */
+        opacity: 1;
+
+        /* No translation; make it look like without animation (what it looks like at the end) */
+        transform: translate(0);
+
+    }
+}
+
+@keyframes moveInBottom {
+
+    /* Start */
+    0% {
+        /* Start invisible */
+        opacity: 0;
+        /* Start out of the bottom side */
+        transform: translateY(100px);
+    }
+
+    /* Finish */
+    100% {
+        /* Finish visible */
+        opacity: 1;
+
+        /* No translation; make it look like without animation (what it looks like at the end) */
+        transform: translate(0);
+
+    }
+}
+
+/* :link pseudoclass to style elements under special conditions */
+/* Want the link color to stay the same after clicking anchor */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+
+    /* Make it in the same container as text-box parent class */
+    /* Button is treated like text */
+    display: inline-block;
+    border-radius: 100px;
+
+    /* All the properties transition to be animated */
+    transition: all 0.2s;
+
+    /* Allows btn::after to use absolute positioning (reference required from first relative found) */
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    /* Make the shadow transparent and blurry */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* When clicking the button, it moves 1px to create a neat clicking effect */
+.btn:active {
+    transform: translateY(-1px);
+
+    /* Change the shadow when clicking, lose some shadow and less blurry */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.btn-white {
+    background-color: white;
+    color: #777
+}
+
+/* Virtual element after pseudoelement (put it behind actual element) */
+.btn::after {
+
+    /* Content and display must be added even though empty */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    /* Animations start on the initial state */
+    transition: all 0.4s;
+}
+
+.btn-white::after {
+    background-color: white;
+}
+
+/* Want the button to grow and fade out when hovering */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    /* Delay of 0.75s */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+
+    /* Automatically apply animation styles in moveInBottom 0% before the animation starts */
+    /* (so the button is not visible upon start) */
+    animation-fill-mode: backwards;
 }
