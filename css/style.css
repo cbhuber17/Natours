@@ -11,20 +11,36 @@ Dark green: #28b485
 
 /* Fully control margin and padding automatically done by the browser */
 /* Border box model borders and paddings are removed, gives more control */
-* {
+/* Do after and before pseudo-elements to prevent strange things from happening */
+/* They should also be a part of this reset class as well. */
+*
+*::after
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+
+    /* Automatically inherit on what we put on box-sizing/border-box */
+    /* Force inheritance as it is not by default */
+    box-sizing: inherit;
+}
+
+html {
+    /* 10 px based on default of 16px default browser */
+    font-size: 62.5%;
 }
 
 /* Best practice to put the font family here and not in the universal selector * above */
 body {
     font-family: "lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+
+    /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+    /* The box size doesn't change when using padding.  Many times devs need control of this. */
+    box-sizing: border-box; 
 }
 
 .header {
@@ -44,12 +60,12 @@ body {
 .logo-box {
     /* Absolute position of the logo box relative to its parent, which is header (set to relative in .header) */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -73,15 +89,15 @@ body {
     /* Normally used if an element is flipped 180 degrees and you want to hide it */
     backface-visibility: hidden;
 
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     /* Block display allows occupy the entire width available and create line breaks before/after them */
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -98,9 +114,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation: moveInRight 1s ease-out;
 }
@@ -112,7 +128,7 @@ body {
         /* Start invisible */
         opacity: 0;
         /* Start out of the left side */
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     /* Rotations */
@@ -122,7 +138,7 @@ body {
 
     /* Slight roll to the right side near the end */
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     /* Finish */
@@ -144,7 +160,7 @@ body {
         /* Start invisible */
         opacity: 0;
         /* Start out of the right side */
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     /* Rotations */
@@ -154,7 +170,7 @@ body {
 
     /* Slight roll to the left side near the end */
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     /* Finish */
@@ -175,7 +191,7 @@ body {
         /* Start invisible */
         opacity: 0;
         /* Start out of the bottom side */
-        transform: translateY(100px);
+        transform: translateY(3rem);
     }
 
     /* Finish */
@@ -195,33 +211,35 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
 
     /* Make it in the same container as text-box parent class */
     /* Button is treated like text */
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
 
     /* All the properties transition to be animated */
     transition: all 0.2s;
 
     /* Allows btn::after to use absolute positioning (reference required from first relative found) */
     position: relative;
+
+    font-size: 1.6rem;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-.3rem);
 
     /* Make the shadow transparent and blurry */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
 }
 
-/* When clicking the button, it moves 1px to create a neat clicking effect */
+/* When clicking the button, it moves .1rem to create a neat clicking effect */
 .btn:active {
-    transform: translateY(-1px);
+    transform: translateY(-.1rem);
 
     /* Change the shadow when clicking, lose some shadow and less blurry */
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2);
 }
 
 .btn-white {
@@ -237,7 +255,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
