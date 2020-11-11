@@ -244,7 +244,7 @@ body {
 
 .btn--white {
     background-color: white;
-    color: #777
+    color: #777;
 }
 
 /* Virtual element after pseudoelement (put it behind actual element) */
@@ -265,7 +265,7 @@ body {
     transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: white;
 }
 
