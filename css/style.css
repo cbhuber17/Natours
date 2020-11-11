@@ -57,18 +57,18 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     /* Absolute position of the logo box relative to its parent, which is header (set to relative in .header) */
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     /* These top and left are in relation to the parent element */
     top: 40%;
@@ -92,7 +92,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     /* Block display allows occupy the entire width available and create line breaks before/after them */
     display: block;
     font-size: 6rem;
@@ -112,7 +112,7 @@ body {
     /* animation-delay: 3s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -242,7 +242,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: white;
     color: #777
 }
@@ -275,7 +275,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     /* Delay of 0.75s */
     animation: moveInBottom 0.5s ease-out 0.75s;
 
