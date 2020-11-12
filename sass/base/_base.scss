@@ -1,0 +1,29 @@
+/* "Page Reset" is done with the universal * and body selectors below.  */
+
+/* Fully control margin and padding automatically done by the browser */
+/* Border box model borders and paddings are removed, gives more control */
+/* Do after and before pseudo-elements to prevent strange things from happening */
+/* They should also be a part of this reset class as well. */
+*
+*::after
+*::before {
+    margin: 0;
+    padding: 0;
+
+    /* Automatically inherit on what we put on box-sizing/border-box */
+    /* Force inheritance as it is not by default */
+    box-sizing: inherit;
+}
+
+html {
+    /* 10 px based on default of 16px default browser */
+    // Base definition (1rem), not necessarily typography
+    font-size: 62.5%;
+}
+
+/* Best practice to put the font family here and not in the universal selector * above */
+body {
+    /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+    /* The box size doesn't change when using padding.  Many times devs need control of this. */
+    box-sizing: border-box; 
+}

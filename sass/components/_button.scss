@@ -1,0 +1,82 @@
+.btn {
+
+    /* :link pseudoclass to style elements under special conditions */
+    /* Want the link color to stay the same after clicking anchor */
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+
+        /* Make it in the same container as text-box parent class */
+        /* Button is treated like text */
+        display: inline-block;
+        border-radius: 10rem;
+
+        /* All the properties transition to be animated */
+        transition: all 0.2s;
+
+        /* Allows btn::after to use absolute positioning (reference required from first relative found) */
+        position: relative;
+
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+
+        /* Make the shadow transparent and blurry */
+        box-shadow: 0 1rem 2rem rgba(black,.2);
+
+        /* Want the button to grow and fade out when hovering */
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+
+    }
+
+    /* When clicking the button, it moves .1rem to create a neat clicking effect */
+    &:active {
+        transform: translateY(-.1rem);
+
+        /* Change the shadow when clicking, lose some shadow and less blurry */
+        box-shadow: 0 .5rem 1rem rgba(black,.2);
+    }
+
+    &--white {
+        background-color: white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: white;
+        }
+    }
+
+    /* Virtual element after pseudo-class (put it behind actual element) */
+    &::after {
+
+        /* Content and display must be added even though empty */
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        /* Animations start on the initial state */
+        transition: all 0.4s;
+    }
+
+    &--animated {
+        /* Delay of 0.75s */
+        animation: moveInBottom 0.5s ease-out 0.75s;
+    
+        /* Automatically apply animation styles in moveInBottom 0% before the animation starts */
+        /* (so the button is not visible upon start) */
+        animation-fill-mode: backwards;
+    }
+}

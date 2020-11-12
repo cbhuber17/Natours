@@ -18,70 +18,9 @@ html {
 
 /* Best practice to put the font family here and not in the universal selector * above */
 body {
-  font-family: "lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
   /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
   /* The box size doesn't change when using padding.  Many times devs need control of this. */
   box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  /* Clip path defines a polygon, starting 0, 0 is the top left of the header image */
-  /* Useful tool at https://bennettfeely.com/clippy/ */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    /* Absolute position of the logo box relative to its parent, which is header (set to relative in .header) */
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    /* These top and left are in relation to the parent element */
-    top: 40%;
-    left: 50%;
-    /* Puts the text in the middle of the page */
-    /* In relation to the element itself and not the parent element */
-    transform: translate(-50%, -50%);
-    /* Center the button (button is inline and is treated like text) */
-    text-align: center; }
-
-.heading-primary {
-  color: white;
-  text-transform: uppercase;
-  /* Prevent the animation from being shaky at the end (slight shift up) (Hack to fix it) */
-  /* Normally used if an element is flipped 180 degrees and you want to hide it */
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    /* Block display allows occupy the entire width available and create line breaks before/after them */
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    /* Ease out: start fast, end slow */
-    animation-timing-function: ease-out;
-    /* Repeat animation 3 times */
-    /* animation-iteration-count: 3; */
-    /* Delay in starting the animation */
-    /* animation-delay: 3s; */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
   /* Start */
@@ -139,6 +78,42 @@ body {
     /* No translation; make it look like without animation (what it looks like at the end) */
     transform: translate(0); } }
 
+body {
+  font-family: "lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+  /* Prevent the animation from being shaky at the end (slight shift up) (Hack to fix it) */
+  /* Normally used if an element is flipped 180 degrees and you want to hide it */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    /* Block display allows occupy the entire width available and create line breaks before/after them */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* Ease out: start fast, end slow */
+    animation-timing-function: ease-out;
+    /* Repeat animation 3 times */
+    /* animation-iteration-count: 3; */
+    /* Delay in starting the animation */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
+
 .btn {
   /* :link pseudoclass to style elements under special conditions */
   /* Want the link color to stay the same after clicking anchor */
@@ -193,3 +168,30 @@ body {
     /* Automatically apply animation styles in moveInBottom 0% before the animation starts */
     /* (so the button is not visible upon start) */
     animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* Clip path defines a polygon, starting 0, 0 is the top left of the header image */
+  /* Useful tool at https://bennettfeely.com/clippy/ */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    /* Absolute position of the logo box relative to its parent, which is header (set to relative in .header) */
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /* These top and left are in relation to the parent element */
+    top: 40%;
+    left: 50%;
+    /* Puts the text in the middle of the page */
+    /* In relation to the element itself and not the parent element */
+    transform: translate(-50%, -50%);
+    /* Center the button (button is inline and is treated like text) */
+    text-align: center; }

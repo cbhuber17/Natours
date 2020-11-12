@@ -1,0 +1,83 @@
+@keyframes moveInLeft {
+
+    /* Start */
+    0% {
+        /* Start invisible */
+        opacity: 0;
+        /* Start out of the left side */
+        transform: translateX(-10rem);
+    }
+
+    /* Rotations */
+    /* 60% {
+        transform: rotate(180deg);
+    } */
+
+    /* Slight roll to the right side near the end */
+    80% {
+        transform: translateX(1rem);
+    }
+
+    /* Finish */
+    100% {
+
+        /* Finish visible */
+        opacity: 1;
+
+        /* No translation; make it look like without animation (what is looks like at the end) */
+        transform: translate(0);
+
+    }
+}
+
+@keyframes moveInRight {
+
+    /* Start */
+    0% {
+        /* Start invisible */
+        opacity: 0;
+        /* Start out of the right side */
+        transform: translateX(10rem);
+    }
+
+    /* Rotations */
+    /* 60% {
+        transform: rotate(180deg);
+    } */
+
+    /* Slight roll to the left side near the end */
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    /* Finish */
+    100% {
+        /* Finish visible */
+        opacity: 1;
+
+        /* No translation; make it look like without animation (what it looks like at the end) */
+        transform: translate(0);
+
+    }
+}
+
+@keyframes moveInBottom {
+
+    /* Start */
+    0% {
+        /* Start invisible */
+        opacity: 0;
+        /* Start out of the bottom side */
+        transform: translateY(3rem);
+    }
+
+    /* Finish */
+    100% {
+        /* Finish visible */
+        opacity: 1;
+
+        /* No translation; make it look like without animation (what it looks like at the end) */
+        transform: translate(0);
+
+    }
+}

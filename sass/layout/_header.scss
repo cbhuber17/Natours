@@ -1,0 +1,37 @@
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, 
+                                    rgba($color-primary-light, 0.8),
+                                    rgba($color-primary-dark, 0.8)),
+                                    url('../img/hero.jpg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    /* Clip path defines a polygon, starting 0, 0 is the top left of the header image */
+    /* Useful tool at https://bennettfeely.com/clippy/ */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    &__logo-box {
+        /* Absolute position of the logo box relative to its parent, which is header (set to relative in .header) */
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        /* These top and left are in relation to the parent element */
+        top: 40%;
+        left: 50%;
+        /* Puts the text in the middle of the page */
+        /* In relation to the element itself and not the parent element */
+        transform: translate(-50%, -50%);
+    
+        /* Center the button (button is inline and is treated like text) */
+        text-align: center;
+    }
+}
