@@ -1,0 +1,22 @@
+{
+  "name": "natoursproject",
+  "version": "1.0.0",
+  "description": "Fake tour website as part of the advanced css/sass course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbhuber17/Natours.git"
+  },
+  "author": "Colin Huber cbhuber@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbhuber17/Natours/issues"
+  },
+  "homepage": "https://github.com/cbhuber17/Natours#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
