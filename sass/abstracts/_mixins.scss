@@ -1,0 +1,14 @@
+@mixin clearfix {
+
+    // Append a pseudo-element after the element to clear the floats
+    &::after {
+        // Always need to specify a content, otherwise the pseudo-element will not appear on the page
+        // Have it empty so we don't want to see it on the page
+        content: "";
+        // Standard version of clearfix is to use table display
+        display: table;
+        // Clears both float left and right
+        clear: both;
+    }
+
+}
