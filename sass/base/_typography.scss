@@ -46,3 +46,32 @@ body {
         animation: moveInRight 1s ease-out;
     }
 }
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    // Inline block makes the background gradient stop when the text stops 
+    // (rather than going to the end of the page).
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+
+    // The background gets clipped exactly where the text is
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    // Make the text transparent so we can see the background image (gradient)
+    color: transparent;
+
+    // Fixed letter spacing is fine (no need to use rems).
+    letter-spacing: 2px;
+
+    // Transition for hover to create skew effect
+    transition: all .2s;
+
+    &:hover {
+        transform: skewX(2deg) skewY(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba(black, .2);
+    }
+}

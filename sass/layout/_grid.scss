@@ -1,7 +1,6 @@
 .row {
     // 1140 pixel grid is a common standard
     max-width: $grid-width;
-    background-color: #eee;
 
     // Center - auto means left and right will be the same
     margin: 0 auto;
@@ -18,8 +17,6 @@
     // Regex carat ^ operator "starts with" col-
     // So all of these styles will get applied to .col-x-of-y classes below
     [class^="col-"] {
-
-        background-color: orangered;
 
         // Float layout
         float: left;
