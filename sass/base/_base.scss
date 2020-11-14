@@ -4,8 +4,8 @@
 /* Border box model borders and paddings are removed, gives more control */
 /* Do after and before pseudo-elements to prevent strange things from happening */
 /* They should also be a part of this reset class as well. */
-*
-*::after
+*,
+*::after,
 *::before {
     margin: 0;
     padding: 0;
