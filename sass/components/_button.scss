@@ -19,7 +19,7 @@
         /* Allows btn::after to use absolute positioning (reference required from first relative found) */
         position: relative;
 
-        font-size: 1.6rem;
+        font-size: $default-font-size;
     }
 
     &:hover {
@@ -79,4 +79,33 @@
         /* (so the button is not visible upon start) */
         animation-fill-mode: backwards;
     }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        // Inline-block allows box-model properties like margin, padding etc.
+        display: inline-block; 
+        text-decoration: none;
+        // Really small units are acceptable, since it won't matter when the user resizes the page
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: white;
+        box-shadow: 0 1rem 2rem rgba(black, .15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba(black, .15);
+        transform: translateY(0);
+    }
+
+    
 }
