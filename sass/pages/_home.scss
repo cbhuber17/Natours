@@ -5,6 +5,27 @@
     // Move the grey background up into the header section 
     // (so the bottom right clip is not white but the slight grey).
     margin-top: -20vh;
+}
 
-    
+.section-features {
+    padding: 20rem 0;
+
+    background-image: linear-gradient(to right bottom, 
+                                    rgba($color-primary-light, 0.8),
+                                    rgba($color-primary-dark, 0.8)),
+                                    url('../img/nat-4.jpg');
+    background-size: cover;
+
+    // Skew the entire section, but only affect the image
+    transform: skewY(-7deg);
+
+    // Move up the background image up to cover the skewed white showing in the top left
+    margin-top: -12rem;
+
+    // Universal selector to select all childs, but only 1 child level
+    // I.e. the row class only in the section-features class in the HTML
+    & > * {
+        // Skew back in the other direction to straighten it out
+        transform: skewY(7deg);
+    }
 }

@@ -1,0 +1,32 @@
+.feature-box {
+
+    background-color: rgba(white, .8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(black, .15);
+    transition: transform .3s;
+
+    &__icon {
+        // Actually font size of the icon
+        font-size: 6rem;
+        margin-bottom: .5rem;
+
+        // Make the icon have the green linear gradient
+        display: inline-block;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+
+        // The background gets clipped exactly where the icon is
+        // (so only the icon shows the background which is the gradient).
+        background-clip: text;
+        -webkit-background-clip: text;
+
+        // Make the icon transparent so we can see the background image (gradient)
+        color: transparent;
+    }
+
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+    }
+}
