@@ -2,6 +2,8 @@
 
     /* :link pseudoclass to style elements under special conditions */
     /* Want the link color to stay the same after clicking anchor */
+    // & by itself targets the <button> element
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -20,6 +22,10 @@
         position: relative;
 
         font-size: $default-font-size;
+
+        // Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -37,7 +43,11 @@
     }
 
     /* When clicking the button, it moves .1rem to create a neat clicking effect */
-    &:active {
+    &:active,
+    &:focus {
+
+        // On focus, remove the focus outline around the button
+        outline: none;
         transform: translateY(-.1rem);
 
         /* Change the shadow when clicking, lose some shadow and less blurry */

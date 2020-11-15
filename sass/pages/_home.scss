@@ -45,3 +45,31 @@
     position: relative;
     padding: 15rem 0;
 }
+
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+
+    // Create the booking box
+    // Line through the middle is 105 deg
+    // White 90% opacity for the first half of the gradient
+    // Transparent for the other half to see the background image
+    background-image: linear-gradient(105deg,
+                                      rgba(white, .9) 0%,
+                                      rgba(white, .9) 50%,
+                                      transparent 50%),
+                                        url(../img/nat-10.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(black, .2);
+
+    height: 50rem;
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}

@@ -1,0 +1,119 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba(white, .5);
+        border: none;
+
+        // Don't show the border on the default (unfocused) state
+        // THere is a slight 3px screen jump if this is not done here
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        transition: all .3s;
+        
+        // Valid input, show green
+        // Must show something for accessibility reasons
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba(black, .1);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        // Browsers know what to look for when a certain "type" is used in the HTML forms
+        // They have invalid states (such as text or email input).  Render
+        // the invalid state here.
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        // This is used to color the placeholder text inside the boxes
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    // Style the placeholder when it is shown on the input element
+    // Not the input want to style, the label is to be styled
+    // This is how it has to be done, not nested in input above
+    // Use the + to select the NEXT sibling AFTER in the HTML (general sibling selector)
+    // which is form__label.  So we are at form__input, + will select --> form__label.
+    &__input:placeholder-shown + &__label {
+
+        // So when it is shown, actually don't show it
+        // Use opacity to allow animation
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
+
+        // Allow absolute positioning on the child radio-button class below
+        position: relative;
+        padding-left: 4.5rem;
+    }
+
+    &__radio-button {
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+
+        // Custom radio button will not show properly unless displayed as a block/inline-block element
+        display: inline-block;
+        position: absolute;
+        top: -.4rem;
+        left: 0;
+
+        &::after {
+            // Must specify content and display when using pseudo-elements
+            content: "";
+            display: block;
+            border-radius: 50%;
+            height: 1.3rem;
+            width: 1.3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    // Use a ~ operator to select sibling, then the child of that sibling, which is the radio button
+    // Checked will be when the real button is selected, we want our green button
+    // to be selected as well.
+    &__radio-input:checked ~ &__radio-label &__radio-button::after {
+        opacity: 1;
+    }
+}
