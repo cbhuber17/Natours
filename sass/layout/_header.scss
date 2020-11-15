@@ -9,6 +9,7 @@
     position: relative;
     /* Clip path defines a polygon, starting 0, 0 is the top left of the header image */
     /* Useful tool at https://bennettfeely.com/clippy/ */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     &__logo-box {

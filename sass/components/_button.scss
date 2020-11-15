@@ -53,6 +53,15 @@
         }
     }
 
+    &--green {
+        background-color: $color-primary;
+        color: white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
     /* Virtual element after pseudo-class (put it behind actual element) */
     &::after {
 
