@@ -19,6 +19,9 @@ html {
     /* 10 px based on default of 16px default browser */
     // Base definition (1rem), not necessarily typography
     font-size: 62.5%;
+
+    // Smooth scrolling when jumping to links on page
+    scroll-behavior: smooth;
 }
 
 /* Best practice to put the font family here and not in the universal selector * above */
