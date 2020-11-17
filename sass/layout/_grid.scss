@@ -9,6 +9,16 @@
     // Select everything except the last child (:not pseudo-class)
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }
+    }
+
+    // Reduce row width on smaller screens
+    @include respond(tab-port) {
+        max-width: 50rem;
+        padding: 0 3rem;
     }
 
     @include clearfix;
@@ -24,6 +34,17 @@
         // No gutter (margin) on the far right column
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            // Remove margin on smaller screens
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        // Single column on smaller screens
+        @include respond(tab-port) {
+            width: 100% !important;
         }
     }
 

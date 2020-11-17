@@ -8,6 +8,10 @@
     box-shadow: 0 1.5rem 4rem rgba(black, .15);
     transition: transform .3s;
 
+    @include respond(tab-port) {
+        padding: 2rem;
+    }
+
     &__icon {
         // Actually font size of the icon
         font-size: 6rem;
@@ -24,6 +28,10 @@
 
         // Make the icon transparent so we can see the background image (gradient)
         color: transparent;
+
+        @include respond(tab-port) {
+            margin-bottom: 0;
+        }
     }
 
     &:hover {
