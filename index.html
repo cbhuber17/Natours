@@ -78,12 +78,27 @@
                 </div>
                 <div class="col-1-of-2">
                     <div class="composition">
-                        <img src="./img/nat-1-large.jpg" alt="Photo 1"
-                            class="composition__photo composition__photo--p1">
-                        <img src="./img/nat-2-large.jpg" alt="Photo 2"
-                            class="composition__photo composition__photo--p2">
-                        <img src="./img/nat-3-large.jpg" alt="Photo 3"
-                            class="composition__photo composition__photo--p3">
+
+                        <!-- Allow the browser to choose the best image based on the current viewport/pixel density -->
+                        <!-- No density descriptors 1x or 2x used here -->
+                        <!-- Will use the width descriptor -->
+                        <!-- Choose the image size based on the media query -->
+                        <!-- E.g. if the max width is < 600 px, have the image be 30% of the viewport width -->
+                        <!-- 300 px is the default fallback -->
+                        <!-- src is used in case a browser does not support srcset/sizes yet -->
+                        <!-- This code takes care of resolution and density switching -->
+                        <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" alt="Photo 1"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                            class="composition__photo composition__photo--p1" src="./img/nat-1-large.jpg">
+
+                        <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" alt="Photo 2"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                            class="composition__photo composition__photo--p2" src="./img/nat-2-large.jpg">
+
+                        <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" alt="Photo 3"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                            class="composition__photo composition__photo--p3" src="./img/nat-3-large.jpg">
+
                     </div>
                 </div>
             </div>
@@ -366,7 +381,21 @@
 
     <footer class="footer">
         <div class="footer__logo-box">
-            <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+
+            <!-- Art direction to tell the browser to use images dependant on viewport width -->
+            <!-- Media query put in the source (phone size, 37.5em/600px) -->
+            <!-- picture element allows multiple sources for images -->
+            <picture class="footer__logo">
+                <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                    media="(max-width: 37.5em)">
+
+                <!-- Fallback in case source does not work or meet its criteria -->
+                <!-- Responsive images using srcset, 1x for low res screens, 2x for hi-res screens -->
+                <!-- src is used incase srcset is not supported by the browser -->
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo"
+                    src="img/logo-green-2x.png">
+            </picture>
+
         </div>
         <div class="row">
             <div class="col-1-of-2">
