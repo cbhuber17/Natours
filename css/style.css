@@ -306,7 +306,7 @@ body {
       top: 10rem; }
       @media (max-width: 56.25em) {
         .composition__photo--p3 {
-          top: 0;
+          top: 1rem;
           left: 0;
           transform: scale(1.1); } }
     .composition__photo:hover {
