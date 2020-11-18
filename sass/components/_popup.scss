@@ -13,6 +13,12 @@
     visibility: hidden;
     transition: all .3s;
 
+    // Blur background if browser supports it
+    @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
     &__content {
         @include absCenter;
         width: 75%;
