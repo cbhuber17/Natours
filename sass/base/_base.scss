@@ -46,3 +46,17 @@ body {
     }
 
 }
+
+// Workaround to make text selection work in Chrome
+* {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text; 
+}
+
+// Change the color when the user selects text on the page
+::selection {
+    background-color: $color-primary;
+    color: white;
+}
+

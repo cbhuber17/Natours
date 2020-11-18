@@ -19,8 +19,8 @@
     // Anything > 192dpi and > 600px (37.5em) image width size, will run the code here
     // OR
     // Also load the large image if the screen width is very large > 125em (2000px)
-    @media (min-resolution: 192dpi) and (min-width: 37.5em),
-           (min-width: 125em) {
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+           only screen and (min-width: 125em) {
         background-image: linear-gradient(to right bottom, 
                                          rgba($color-primary-light, 0.8),
                                          rgba($color-primary-dark, 0.8)),

@@ -168,12 +168,10 @@
         font-weight: 100;
     }
 
-
-
-
-
     // Rewrite the card on smaller screens
-    @include respond(tab-port) {
+    // or when using a device when we cannot hover (touch screens only)
+    @media only screen and (max-width: 56.25em),
+           only screen and (hover:none) {
 
         height: auto;
         border-radius: 3px;
@@ -217,9 +215,4 @@
             font-size: 4rem;
         }
     }
-
-
-
-
-
 }
