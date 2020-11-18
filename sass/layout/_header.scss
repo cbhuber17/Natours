@@ -1,9 +1,11 @@
 .header {
     height: 95vh;
+
+    // Start with the small image, use media queries below to load large image
     background-image: linear-gradient(to right bottom, 
-                                    rgba($color-primary-light, 0.8),
-                                    rgba($color-primary-dark, 0.8)),
-                                    url('../img/hero.jpg');
+                                      rgba($color-primary-light, 0.8),
+                                      rgba($color-primary-dark, 0.8)),
+                                      url('../img/hero-small.jpg');
     background-size: cover;
     background-position: top;
     position: relative;
@@ -11,6 +13,21 @@
     /* Useful tool at https://bennettfeely.com/clippy/ */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    // Media queries for loading large images
+    // 192 dpi is a standard reference for hi-res screens
+    // Anything > 192dpi and > 600px (37.5em) image width size, will run the code here
+    // OR
+    // Also load the large image if the screen width is very large > 125em (2000px)
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+           (min-width: 125em) {
+        background-image: linear-gradient(to right bottom, 
+                                         rgba($color-primary-light, 0.8),
+                                         rgba($color-primary-dark, 0.8)),
+                                         url('../img/hero.jpg');
+    }
+
+    
 
     // Reduce clip path on smaller screens
     @include respond(phone) {
