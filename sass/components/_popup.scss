@@ -43,6 +43,10 @@
     &__left {
         width: 33.33%;
         display: table-cell;
+        
+        @include respond(tab-port) {
+            display: none;
+        };
     }
     
     &__right {
@@ -50,6 +54,10 @@
         display: table-cell;
         vertical-align: middle;
         padding: 3rem 5rem;
+
+        @include respond(tab-port) {
+            text-align: center;
+        }
     }
 
     &__img {
@@ -76,6 +84,14 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto;
+
+        
+        // 800 px
+        @include respond(tab-port) {
+            -moz-column-count: 1;
+            column-count: 1;
+            margin-bottom: 1rem;
+        };
     }
 
     // Open states
