@@ -53,7 +53,7 @@
         left: 50%;
         /* Puts the text in the middle of the page */
         /* In relation to the element itself and not the parent element */
-        transform: translate(-50%, -50%);
+        transform: $transform-center;
     
         /* Center the button (button is inline and is treated like text) */
         text-align: center;

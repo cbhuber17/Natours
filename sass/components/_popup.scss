@@ -34,7 +34,7 @@
         // If just scale(.5) was done, the translate from absCenter will be gone and thus
         // the popup would not be centered on the page.  So need to restate the center translate
         // here in addition to the scaling.
-        transform: translate(-50%, -50%) scale(.25);
+        transform: $transform-center scale(.25);
 
         // Delay with .2s, fade to black first then popup
         transition: all .5s .2s;
@@ -106,7 +106,7 @@
     // Style the child element when the popup target is selected
     &:target &__content {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
+        transform: $transform-center scale(1);
     }
 
     &__close {

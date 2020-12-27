@@ -21,7 +21,7 @@
     background-size: cover;
 
     // Skew the entire section, but only affect the image
-    transform: skewY(-7deg);
+    transform: skewY(-$skew-feature-angle);
 
     // Move up the background image up to cover the skewed white showing in the top left
     margin-top: -12rem;
@@ -30,7 +30,7 @@
     // I.e. the row class only in the section-features class in the HTML
     & > * {
         // Skew back in the other direction to straighten it out
-        transform: skewY(7deg);
+        transform: skewY($skew-feature-angle);
     }
 
     @include respond(tab-port) {

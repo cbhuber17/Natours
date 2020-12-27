@@ -74,7 +74,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: $transform-center;
         list-style: none;
         text-align: center;
         width: 100%;
@@ -178,11 +178,11 @@
     // Make the 'X' sign with the before and after pseudo-elements
     &__checkbox:checked + &__button &__icon::before {
         top: 0;
-        transform: rotate(135deg);    
+        transform: rotate($x-rotate-angle);    
     }
     
     &__checkbox:checked + &__button &__icon::after {
         top: 0;
-        transform: rotate(-135deg);
+        transform: rotate(-$x-rotate-angle);
     }
 }
