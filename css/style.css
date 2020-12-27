@@ -379,10 +379,11 @@ body {
         background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
       .card__side--back-3 {
         background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
-  .card:hover .card__side--front {
-    transform: rotateY(-180deg); }
-  .card:hover .card__side--back {
-    transform: rotateY(0); }
+  @media only screen and (min-width: 56.25em) {
+    .card:hover .card__side--front {
+      transform: rotateY(-180deg); }
+    .card:hover .card__side--back {
+      transform: rotateY(0); } }
   .card__picture {
     background-size: cover;
     height: 23rem;
@@ -459,8 +460,6 @@ body {
         .card__side--back {
           transform: rotateY(0deg);
           clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
-      .card:hover .card__side--front {
-        transform: rotateY(-180deg); }
       .card__details {
         padding: 1rem 3rem; }
       .card__cta {

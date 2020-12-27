@@ -51,11 +51,16 @@
 
     // __side is a child class to allow the y-axis card rotation to happen
     // Perspective must be on the parent as defined above
-    &:hover &__side--front {
-        transform: rotateY(-180deg);
-    }
-    &:hover &__side--back {
-        transform: rotateY(0);
+    // Only allow this hovering/rotate effect when on larger screens ( > tab-port)
+    // Smaller screens shows the price in a block below the card where hovering is disabled on touch devices
+    @media only screen and (min-width: 56.25em) {
+
+        &:hover &__side--front {
+            transform: rotateY(-180deg);
+        }
+        &:hover &__side--back {
+            transform: rotateY(0);
+        }
     }
 
     // Front side styling
@@ -105,8 +110,8 @@
         // Applies the above paddings when text goes on a new line
         // https://www.w3schools.com/cssref/css3_pr_box-decoration-break.asp:
         // Box decorations apply to each fragment of the element
-        // as if the fragments were individual elements. Borders wrap t
-        // he four edges of each fragment of the element, and backgrounds are redrawn in full for each fragment
+        // as if the fragments were individual elements. Borders wrap the
+        // four edges of each fragment of the element, and backgrounds are redrawn in full for each fragment
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
 
@@ -190,7 +195,7 @@
         }
 
         &:hover &__side--front {
-            transform: rotateY(-180deg);
+            // transform: rotateY(-180deg);
         }
 
         &__details {
